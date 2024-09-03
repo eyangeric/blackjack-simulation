@@ -1,3 +1,3 @@
 class Dealer:
-    def __init__(self):
-        self.hand = []
+    def __init__(self, name):
+        self.name = name
