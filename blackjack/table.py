@@ -13,6 +13,10 @@ class Table:
         self.shoe = shoe
         self.discard_tray = discard_tray
         self.running_count = 0
+        self.true_count = 0
+
+    def calculate_true_count(self):
+        self.true_count += int(self.running_count/len(self.shoe.cards)/52)
 
 
     def initial_deal_count(self):
@@ -26,4 +30,5 @@ class Table:
         self.player.receive_card(self.shoe.deal_card())
         self.dealer.receive_card(self.shoe.deal_card())
         self.initial_deal_count()
+        self.calculate_true_count()
 
