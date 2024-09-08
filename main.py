@@ -21,8 +21,8 @@ table = Table(dealer, player, shoe, discard_tray)
 table.shoe.shuffle()
 
 while len(table.shoe.cards) > 0:
-        table.initial_deal()
-        breakpoint()
+    table.initial_deal()
+    breakpoint()
 
 
 
