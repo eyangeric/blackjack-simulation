@@ -1,12 +1,11 @@
 from blackjack.dealer import Dealer
 from blackjack.player import Player
 from blackjack.shoe import Shoe
-from blackjack.discard_tray import DiscardTray
 
 
 class Table:
     def __init__(
-        self, dealer: Dealer, player: Player, shoe: Shoe, discard_tray: DiscardTray
+        self, dealer: Dealer, player: Player, shoe: Shoe
     ):
         self.dealer = dealer
         self.player = player
