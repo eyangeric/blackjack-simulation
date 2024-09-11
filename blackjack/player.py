@@ -12,7 +12,7 @@ class Player:
                 6: [2, 3, 4, 5, 6],
                 4: [5, 6],
                 3: [2, 3, 4, 5, 6, 7],
-                2: [2, 3, 4, 5, 6, 7]
+                2: [2, 3, 4, 5, 6, 7],
             },
             "deviation": {
                 10: {
@@ -20,7 +20,7 @@ class Player:
                     5: "5+",
                     6: "4+",
                 }
-            }
+            },
         },
         "soft": {
             "double": {
@@ -30,21 +30,19 @@ class Player:
                 5: [4, 5, 6],
                 4: [4, 5, 6],
                 3: [5, 6],
-                2: [5, 6]
+                2: [5, 6],
             },
-            "hit": {
-                7: [9, 10, "A"],
-                6: [7, 8, 9, 10, "A"]
-            }
-        }
+            "hit": {7: [9, 10, "A"], 6: [7, 8, 9, 10, "A"]},
+        },
     }
+
     def __init__(self, name: str):
         self.name = name
         self.hand = []
 
     def receive_card(self, card: Card):
         return self.hand.append(card)
-    
+
     def check_initial_hand(self):
         card_values = [card.value for card in self.hand]
         card_types = [card.card_type for card in self.hand]
@@ -57,8 +55,29 @@ class Player:
             hand_type = "hard"
         self.hand_type = hand_type
 
-    def play(self):
-        if len(self.hand) == 2:
-            if self.check_for_pair() == "pair":
-                self.strategy["pair"]["deviation"]
+    def check_deviation(self, deviation: str, running_count: int, true_count: int):
+        if int(deviation[0]) == 0:
+            if deviation[-1] == "-" and running_count < 0:
+                deviation_status = "deviate"
+            elif deviation[-1] == "+" and running_count > 0:
+                deviation_status = "deviate"
+            else:
+                deviation_status = "basic strategy"
+        else:
+            if deviation[-1] == "-" and true_count <= int(deviation[0]):
+                deviation_status = "deviate"
+            elif deviation[-1] == "+" and true_count >= int(deviation[0]):
+                deviation_status = "deviate"
+            else:
+                deviation_status = "basic strategy"
+        return deviation_status
         
+
+    def play(self, dealer_show_card: int | str, running_count: int, true_count: int):
+        if len(self.hand) == 2:
+            if self.check_initial_hand() == "pair":
+                if self.hand[0].card_type in list(self.strategy["pair"]["deviation"].keys()):
+                    if dealer_show_card in list(self.strategy["pair"]["deviation"][self.hand[0].card_type].keys()):
+
+
+                

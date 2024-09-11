@@ -12,7 +12,21 @@ def test_number_of_cards():
 
 
 def test_deal_card():
-    assert shoe.deal_card().card_type in [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]
+    assert shoe.deal_card().card_type in [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        "J",
+        "Q",
+        "K",
+        "A",
+    ]
 
     shoe.cards = []
     assert shoe.deal_card() == "No more cards!"

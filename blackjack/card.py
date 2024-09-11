@@ -12,6 +12,6 @@ class Card:
         elif isinstance(card_type, str):
             self.count_value = -1
             if card_type == "A":
-                self.value = (1, 11)
+                self.value = [1, 11]
             else:
                 self.value = 10

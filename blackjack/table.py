@@ -4,9 +4,7 @@ from blackjack.shoe import Shoe
 
 
 class Table:
-    def __init__(
-        self, dealer: Dealer, player: Player, shoe: Shoe
-    ):
+    def __init__(self, dealer: Dealer, player: Player, shoe: Shoe):
         self.dealer = dealer
         self.player = player
         self.shoe = shoe
@@ -14,8 +12,7 @@ class Table:
         self.true_count = 0
 
     def calculate_true_count(self):
-        self.true_count = int(self.running_count/len(self.shoe.cards)/52)
-
+        self.true_count = int(self.running_count / len(self.shoe.cards) / 52)
 
     def initial_deal_count(self):
         player_count = sum([card.count_value for card in self.player.hand])
@@ -29,4 +26,3 @@ class Table:
         self.dealer.receive_card(self.shoe.deal_card())
         self.initial_deal_count()
         self.calculate_true_count()
-

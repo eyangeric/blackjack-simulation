@@ -10,6 +10,7 @@ def test_int_card():
     assert card_2.count_value == 1
     assert card_10.count_value == -1
 
+
 def test_str_card():
     card_K = Card("K")
     card_A = Card("A")

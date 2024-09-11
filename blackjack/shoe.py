@@ -7,6 +7,7 @@ class Shoe:
 
     def shuffle(self):
         import random
+
         random.shuffle(self.cards)
 
     def deal_card(self):

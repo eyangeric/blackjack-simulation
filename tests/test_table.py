@@ -15,7 +15,7 @@ table = Table(dealer, player, shoe)
 
 def test_initial_deal():
     table.initial_deal()
-    
+
     assert len(table.player.hand) == 2
     assert len(table.dealer.hand) == 2
 
@@ -25,4 +25,4 @@ def test_initial_true_count():
     table.dealer.hand == [7, "K"]
 
     assert table.running_count == -3
-    assert table.true_count == int(-3/100/52)
+    assert table.true_count == int(-3 / 100 / 52)
