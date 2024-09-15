@@ -56,28 +56,30 @@ class Player:
         self.hand_type = hand_type
 
     def check_deviation(self, deviation: str, running_count: int, true_count: int):
-        if int(deviation[0]) == 0:
-            if deviation[-1] == "-" and running_count < 0:
+        deviation_number = int(deviation[:-1])
+        deviation_direction = deviation[-1]
+        if deviation_number == 0:
+            if deviation_direction == "-" and running_count < 0:
                 deviation_status = "deviate"
-            elif deviation[-1] == "+" and running_count > 0:
+            elif deviation_direction == "+" and running_count > 0:
                 deviation_status = "deviate"
             else:
                 deviation_status = "basic strategy"
         else:
-            if deviation[-1] == "-" and true_count <= int(deviation[0]):
+            if deviation_direction == "-" and true_count <= deviation_number:
                 deviation_status = "deviate"
-            elif deviation[-1] == "+" and true_count >= int(deviation[0]):
+            elif deviation_direction == "+" and true_count >= deviation_number:
                 deviation_status = "deviate"
             else:
                 deviation_status = "basic strategy"
         return deviation_status
         
 
-    def play(self, dealer_show_card: int | str, running_count: int, true_count: int):
-        if len(self.hand) == 2:
-            if self.check_initial_hand() == "pair":
-                if self.hand[0].card_type in list(self.strategy["pair"]["deviation"].keys()):
-                    if dealer_show_card in list(self.strategy["pair"]["deviation"][self.hand[0].card_type].keys()):
+    # def play(self, dealer_show_card: int | str, running_count: int, true_count: int):
+    #     if len(self.hand) == 2:
+    #         if self.check_initial_hand() == "pair":
+    #             if self.hand[0].card_type in list(self.strategy["pair"]["deviation"].keys()):
+    #                 if dealer_show_card in list(self.strategy["pair"]["deviation"][self.hand[0].card_type].keys()):
 
 
                 

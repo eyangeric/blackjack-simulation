@@ -45,3 +45,35 @@ def test_check_initial_hand_hard():
     player.receive_card(card_5)
     player.check_initial_hand()
     assert player.hand_type == "hard"
+
+
+def test_check_deviation():
+    player = Player("Card Counter")
+
+    negative_running_count = -2
+    negative_true_count = -1
+    negative_running_count_deviation = "0-"
+    negative_true_count_deviation = "-1-"
+    negative_running_count_action = player.check_deviation(negative_running_count_deviation, negative_running_count, negative_true_count)
+    negative_true_count_action = player.check_deviation(negative_true_count_deviation, negative_running_count, negative_true_count)
+    assert negative_running_count_action == "deviate"
+    assert negative_true_count_action == "deviate"
+
+    positive_running_count = 2
+    positive_true_count = 1
+    positive_running_count_deviation = "0+"
+    positive_true_count_deviation = "-1+"
+    high_positive_true_count_deviation = "6+"
+    positive_running_count_action = player.check_deviation(positive_running_count_deviation, positive_running_count, positive_true_count)
+    positive_true_count_action = player.check_deviation(positive_true_count_deviation, positive_running_count, positive_true_count)    
+    assert positive_running_count_action == "deviate"
+    assert positive_true_count_action == "deviate"
+
+    basic_strategy_1 = player.check_deviation(negative_running_count_deviation, positive_running_count, positive_true_count)
+    basic_strategy_2 = player.check_deviation(negative_true_count_deviation, positive_running_count, positive_true_count)
+    basic_strategy_3 = player.check_deviation(positive_running_count_deviation, negative_running_count, negative_true_count)
+    basic_strategy_4 = player.check_deviation(high_positive_true_count_deviation, negative_running_count, negative_true_count)
+    assert basic_strategy_1 == "basic strategy"
+    assert basic_strategy_2 == "basic strategy"
+    assert basic_strategy_3 == "basic strategy"
+    assert basic_strategy_4 == "basic strategy"

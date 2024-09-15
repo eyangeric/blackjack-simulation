@@ -16,6 +16,6 @@ def test_str_card():
     card_A = Card("A")
 
     assert card_K.value == 10
-    assert card_A.value == (1, 11)
+    assert card_A.value == [1, 11]
     assert card_K.count_value == -1
     assert card_A.count_value == -1
