@@ -16,9 +16,9 @@ class Player:
             },
             "deviation": {
                 10: {
-                    4: "6+",
-                    5: "5+",
-                    6: "4+",
+                    4: ("6+", "double"),
+                    5: ("5+", "double"),
+                    6: ("4+", "double"),
                 }
             },
         },
@@ -33,7 +33,72 @@ class Player:
                 2: [5, 6],
             },
             "hit": {7: [9, 10, "A"], 6: [7, 8, 9, 10, "A"]},
+            "deviation": {
+                8: {
+                    4: ("3+", "double"),
+                    5: ("1+", "double"),
+                    6: ("0-", "stand")
+                },
+                6: {
+                    2: ("1+", "double")
+                }
+            }
         },
+        "hard": {
+            "surrender": {
+                17: ["A"],
+                16: [9, 10, "J", "Q", "K", "A"],
+                15: [10, "J", "Q", "K"],
+                "deviation": {
+                    16: {
+                        8: ("4+", "surrender"),
+                        9: ("-1-", "hit")
+                    },
+                    15: {
+                        9: ("2+", "surrender"),
+                        10: ("0-", "hit"),
+                        "A": ("-1+", "surrender")
+                    }
+                }
+            },
+            "double": {
+                11: [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"],
+                10: [2, 3, 4, 5, 6, 7, 8, 9],
+                9: [3, 4, 5, 6],
+                "deviation": {
+                    10: {
+                        10: ("4+", "double"),
+                        "J": ("4+", "double"),
+                        "Q": ("4+", "double"),
+                        "K": ("4+", "double"),
+                        "A": ("3+", "double")
+                    },
+                    9: {
+                        2: ("1+", "double"),
+                        7: ("3+", "double")
+                    },
+                    8: {
+                        6: ("2+", "double")
+                    }
+                }
+            },
+            "hit": {
+                16: [7, 8, 9, 10, "J", "Q", "K", "A"],
+                15: [7, 8, 9, 10, "J", "Q", "K", "A"],
+                14: [7, 8, 9, 10, "J", "Q", "K", "A"],
+                13: [7, 8, 9, 10, "J", "Q", "K", "A"],
+                12: [2, 3, 7, 8, 9, 10, "J", "Q", "K", "A"],
+                10: [10, "J", "Q", "K", "A"],
+                9: [2, 7, 8, 9, 10, "J", "Q", "K", "A"],
+                8: [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"],
+                7: [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"],
+                6: [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"],
+                5: [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"],
+                4: [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"],
+                3: [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"],
+                2: [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]
+            }
+        }
     }
 
     def __init__(self, name: str):
@@ -75,11 +140,11 @@ class Player:
         return deviation_status
         
 
-    # def play(self, dealer_show_card: int | str, running_count: int, true_count: int):
-    #     if len(self.hand) == 2:
-    #         if self.check_initial_hand() == "pair":
-    #             if self.hand[0].card_type in list(self.strategy["pair"]["deviation"].keys()):
-    #                 if dealer_show_card in list(self.strategy["pair"]["deviation"][self.hand[0].card_type].keys()):
+    def play(self, dealer_show_card: int | str, running_count: int, true_count: int):
+        if len(self.hand) == 2:
+            if self.check_initial_hand() == "pair":
+                if self.hand[0].card_type in list(self.strategy["pair"]["deviation"].keys()):
+                    if dealer_show_card in list(self.strategy["pair"]["deviation"][self.hand[0].card_type].keys()):
 
 
                 
