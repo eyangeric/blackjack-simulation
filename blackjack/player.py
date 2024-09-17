@@ -944,6 +944,812 @@ class Player:
         }
     }
 
+    hard_strategy = {
+        20: {
+            2: {
+                "basic": "stay"
+            },
+            3: {
+                "basic": "stay"
+            },
+            4: {
+                "basic": "stay"
+            },
+            5: {
+                "basic": "stay"
+            },
+            6: {
+                "basic": "stay"
+            },
+            7: {
+                "basic": "stay"
+            },
+            8: {
+                "basic": "stay"
+            },
+            9: {
+                "basic": "stay"
+            },
+            10: {
+                "basic": "stay"
+            },
+            "J": {
+                "basic": "stay"
+            },
+            "Q": {
+                "basic": "stay"
+            },
+            "K": {
+                "basic": "stay"
+            },
+            "A": {
+                "basic": "stay"
+            },
+        },
+        19: {
+            2: {
+                "basic": "stay"
+            },
+            3: {
+                "basic": "stay"
+            },
+            4: {
+                "basic": "stay"
+            },
+            5: {
+                "basic": "stay"
+            },
+            6: {
+                "basic": "stay"
+            },
+            7: {
+                "basic": "stay"
+            },
+            8: {
+                "basic": "stay"
+            },
+            9: {
+                "basic": "stay"
+            },
+            10: {
+                "basic": "stay"
+            },
+            "J": {
+                "basic": "stay"
+            },
+            "Q": {
+                "basic": "stay"
+            },
+            "K": {
+                "basic": "stay"
+            },
+            "A": {
+                "basic": "stay"
+            },
+        },
+        18: {
+            2: {
+                "basic": "stay"
+            },
+            3: {
+                "basic": "stay"
+            },
+            4: {
+                "basic": "stay"
+            },
+            5: {
+                "basic": "stay"
+            },
+            6: {
+                "basic": "stay"
+            },
+            7: {
+                "basic": "stay"
+            },
+            8: {
+                "basic": "stay"
+            },
+            9: {
+                "basic": "stay"
+            },
+            10: {
+                "basic": "stay"
+            },
+            "J": {
+                "basic": "stay"
+            },
+            "Q": {
+                "basic": "stay"
+            },
+            "K": {
+                "basic": "stay"
+            },
+            "A": {
+                "basic": "stay"
+            },
+        },
+        17: {
+            2: {
+                "basic": "stay"
+            },
+            3: {
+                "basic": "stay"
+            },
+            4: {
+                "basic": "stay"
+            },
+            5: {
+                "basic": "stay"
+            },
+            6: {
+                "basic": "stay"
+            },
+            7: {
+                "basic": "stay"
+            },
+            8: {
+                "basic": "stay"
+            },
+            9: {
+                "basic": "stay"
+            },
+            10: {
+                "basic": "stay"
+            },
+            "J": {
+                "basic": "stay"
+            },
+            "Q": {
+                "basic": "stay"
+            },
+            "K": {
+                "basic": "stay"
+            },
+            "A": {
+                "basic": "stay"
+            },
+        },
+        16: {
+            2: {
+                "basic": "stay"
+            },
+            3: {
+                "basic": "stay"
+            },
+            4: {
+                "basic": "stay"
+            },
+            5: {
+                "basic": "stay"
+            },
+            6: {
+                "basic": "stay"
+            },
+            7: {
+                "basic": "hit"
+            },
+            8: {
+                "basic": "hit"
+            },
+            9: {
+                "basic": "hit",
+                "deviation": ("4+", "stay")
+            },
+            10: {
+                "basic": "hit",
+                "deviation": ("0+", "stay")
+            },
+            "J": {
+                "basic": "hit",
+                "deviation": ("0+", "stay")
+            },
+            "Q": {
+                "basic": "hit",
+                "deviation": ("0+", "stay")
+            },
+            "K": {
+                "basic": "hit",
+                "deviation": ("0+", "stay")
+            },
+            "A": {
+                "basic": "hit",
+                "deviation": ("3+", "stay")
+            },
+        },
+        15: {
+            2: {
+                "basic": "stay"
+            },
+            3: {
+                "basic": "stay"
+            },
+            4: {
+                "basic": "stay"
+            },
+            5: {
+                "basic": "stay"
+            },
+            6: {
+                "basic": "stay"
+            },
+            7: {
+                "basic": "hit"
+            },
+            8: {
+                "basic": "hit"
+            },
+            9: {
+                "basic": "hit",
+            },
+            10: {
+                "basic": "hit",
+                "deviation": ("4+", "stay")
+            },
+            "J": {
+                "basic": "hit",
+                "deviation": ("4+", "stay")
+            },
+            "Q": {
+                "basic": "hit",
+                "deviation": ("4+", "stay")
+            },
+            "K": {
+                "basic": "hit",
+                "deviation": ("4+", "stay")
+            },
+            "A": {
+                "basic": "hit",
+                "deviation": ("5+", "stay")
+            },
+        },
+        14: {
+            2: {
+                "basic": "stay"
+            },
+            3: {
+                "basic": "stay"
+            },
+            4: {
+                "basic": "stay"
+            },
+            5: {
+                "basic": "stay"
+            },
+            6: {
+                "basic": "stay"
+            },
+            7: {
+                "basic": "hit"
+            },
+            8: {
+                "basic": "hit"
+            },
+            9: {
+                "basic": "hit",
+            },
+            10: {
+                "basic": "hit",
+            },
+            "J": {
+                "basic": "hit",
+            },
+            "Q": {
+                "basic": "hit",
+            },
+            "K": {
+                "basic": "hit",
+            },
+            "A": {
+                "basic": "hit",
+            },
+        },
+        13: {
+            2: {
+                "basic": "stay",
+                "deviation": ("-1-", "hit")
+            },
+            3: {
+                "basic": "stay"
+            },
+            4: {
+                "basic": "stay"
+            },
+            5: {
+                "basic": "stay"
+            },
+            6: {
+                "basic": "stay"
+            },
+            7: {
+                "basic": "hit"
+            },
+            8: {
+                "basic": "hit"
+            },
+            9: {
+                "basic": "hit",
+            },
+            10: {
+                "basic": "hit",
+            },
+            "J": {
+                "basic": "hit",
+            },
+            "Q": {
+                "basic": "hit",
+            },
+            "K": {
+                "basic": "hit",
+            },
+            "A": {
+                "basic": "hit",
+            },
+        },
+        12: {
+            2: {
+                "basic": "hit",
+                "deviation": ("3+", "stay")
+            },
+            3: {
+                "basic": "hit",
+                "deviation": ("2+", "stay")
+            },
+            4: {
+                "basic": "stay",
+                "deviation": ("0-", "hit")
+            },
+            5: {
+                "basic": "stay"
+            },
+            6: {
+                "basic": "stay"
+            },
+            7: {
+                "basic": "hit"
+            },
+            8: {
+                "basic": "hit"
+            },
+            9: {
+                "basic": "hit",
+            },
+            10: {
+                "basic": "hit",
+            },
+            "J": {
+                "basic": "hit",
+            },
+            "Q": {
+                "basic": "hit",
+            },
+            "K": {
+                "basic": "hit",
+            },
+            "A": {
+                "basic": "hit",
+            },
+        },
+        11: {
+            2: {
+                "basic": "double"
+            },
+            3: {
+                "basic": "double"
+            },
+            4: {
+                "basic": "double"
+            },
+            5: {
+                "basic": "double"
+            },
+            6: {
+                "basic": "double"
+            },
+            7: {
+                "basic": "double"
+            },
+            8: {
+                "basic": "double"
+            },
+            9: {
+                "basic": "double"
+            },
+            10: {
+                "basic": "double"
+            },
+            "J": {
+                "basic": "double"
+            },
+            "Q": {
+                "basic": "double"
+            },
+            "K": {
+                "basic": "double"
+            },
+            "A": {
+                "basic": "double"
+            },
+        },
+        10: {
+            2: {
+                "basic": "double"
+            },
+            3: {
+                "basic": "double"
+            },
+            4: {
+                "basic": "double"
+            },
+            5: {
+                "basic": "double"
+            },
+            6: {
+                "basic": "double"
+            },
+            7: {
+                "basic": "double"
+            },
+            8: {
+                "basic": "double"
+            },
+            9: {
+                "basic": "double"
+            },
+            10: {
+                "basic": "stay",
+                "deviation": ("4+", "double")
+            },
+            "J": {
+                "basic": "stay",
+                "deviation": ("4+", "double")
+            },
+            "Q": {
+                "basic": "stay",
+                "deviation": ("4+", "double")
+            },
+            "K": {
+                "basic": "stay",
+                "deviation": ("4+", "double")
+            },
+            "A": {
+                "basic": "stay",
+                "deviation": ("3+", "double")
+            },
+        },
+        9: {
+            2: {
+                "basic": "hit",
+                "deviation": ("1+", "double")
+            },
+            3: {
+                "basic": "double"
+            },
+            4: {
+                "basic": "double"
+            },
+            5: {
+                "basic": "double"
+            },
+            6: {
+                "basic": "double"
+            },
+            7: {
+                "basic": "hit",
+                "deviation": ("3+", "double")
+            },
+            8: {
+                "basic": "hit"
+            },
+            9: {
+                "basic": "hit"
+            },
+            10: {
+                "basic": "hit"
+            },
+            "J": {
+                "basic": "hit"
+            },
+            "Q": {
+                "basic": "hit"
+            },
+            "K": {
+                "basic": "hit"
+            },
+            "A": {
+                "basic": "hit"
+            },
+        },
+        8: {
+            2: {
+                "basic": "hit",
+                "deviation": ("1+", "double")
+            },
+            3: {
+                "basic": "double"
+            },
+            4: {
+                "basic": "double"
+            },
+            5: {
+                "basic": "double"
+            },
+            6: {
+                "basic": "double"
+            },
+            7: {
+                "basic": "hit",
+                "deviation": ("3+", "double")
+            },
+            8: {
+                "basic": "hit"
+            },
+            9: {
+                "basic": "hit"
+            },
+            10: {
+                "basic": "hit"
+            },
+            "J": {
+                "basic": "hit"
+            },
+            "Q": {
+                "basic": "hit"
+            },
+            "K": {
+                "basic": "hit"
+            },
+            "A": {
+                "basic": "hit"
+            },
+        },
+        7: {
+            2: {
+                "basic": "hit",
+            },
+            3: {
+                "basic": "hit"
+            },
+            4: {
+                "basic": "hit"
+            },
+            5: {
+                "basic": "hit"
+            },
+            6: {
+                "basic": "hit"
+            },
+            7: {
+                "basic": "hit",
+            },
+            8: {
+                "basic": "hit"
+            },
+            9: {
+                "basic": "hit"
+            },
+            10: {
+                "basic": "hit"
+            },
+            "J": {
+                "basic": "hit"
+            },
+            "Q": {
+                "basic": "hit"
+            },
+            "K": {
+                "basic": "hit"
+            },
+            "A": {
+                "basic": "hit"
+            },
+        },
+        6: {
+            2: {
+                "basic": "hit",
+            },
+            3: {
+                "basic": "hit"
+            },
+            4: {
+                "basic": "hit"
+            },
+            5: {
+                "basic": "hit"
+            },
+            6: {
+                "basic": "hit"
+            },
+            7: {
+                "basic": "hit",
+            },
+            8: {
+                "basic": "hit"
+            },
+            9: {
+                "basic": "hit"
+            },
+            10: {
+                "basic": "hit"
+            },
+            "J": {
+                "basic": "hit"
+            },
+            "Q": {
+                "basic": "hit"
+            },
+            "K": {
+                "basic": "hit"
+            },
+            "A": {
+                "basic": "hit"
+            },
+        },
+        5: {
+            2: {
+                "basic": "hit",
+            },
+            3: {
+                "basic": "hit"
+            },
+            4: {
+                "basic": "hit"
+            },
+            5: {
+                "basic": "hit"
+            },
+            6: {
+                "basic": "hit"
+            },
+            7: {
+                "basic": "hit",
+            },
+            8: {
+                "basic": "hit"
+            },
+            9: {
+                "basic": "hit"
+            },
+            10: {
+                "basic": "hit"
+            },
+            "J": {
+                "basic": "hit"
+            },
+            "Q": {
+                "basic": "hit"
+            },
+            "K": {
+                "basic": "hit"
+            },
+            "A": {
+                "basic": "hit"
+            },
+        },
+        4: {
+            2: {
+                "basic": "hit",
+            },
+            3: {
+                "basic": "hit"
+            },
+            4: {
+                "basic": "hit"
+            },
+            5: {
+                "basic": "hit"
+            },
+            6: {
+                "basic": "hit"
+            },
+            7: {
+                "basic": "hit",
+            },
+            8: {
+                "basic": "hit"
+            },
+            9: {
+                "basic": "hit"
+            },
+            10: {
+                "basic": "hit"
+            },
+            "J": {
+                "basic": "hit"
+            },
+            "Q": {
+                "basic": "hit"
+            },
+            "K": {
+                "basic": "hit"
+            },
+            "A": {
+                "basic": "hit"
+            },
+        },
+        3: {
+            2: {
+                "basic": "hit",
+            },
+            3: {
+                "basic": "hit"
+            },
+            4: {
+                "basic": "hit"
+            },
+            5: {
+                "basic": "hit"
+            },
+            6: {
+                "basic": "hit"
+            },
+            7: {
+                "basic": "hit",
+            },
+            8: {
+                "basic": "hit"
+            },
+            9: {
+                "basic": "hit"
+            },
+            10: {
+                "basic": "hit"
+            },
+            "J": {
+                "basic": "hit"
+            },
+            "Q": {
+                "basic": "hit"
+            },
+            "K": {
+                "basic": "hit"
+            },
+            "A": {
+                "basic": "hit"
+            },
+        },
+        2: {
+            2: {
+                "basic": "hit",
+            },
+            3: {
+                "basic": "hit"
+            },
+            4: {
+                "basic": "hit"
+            },
+            5: {
+                "basic": "hit"
+            },
+            6: {
+                "basic": "hit"
+            },
+            7: {
+                "basic": "hit",
+            },
+            8: {
+                "basic": "hit"
+            },
+            9: {
+                "basic": "hit"
+            },
+            10: {
+                "basic": "hit"
+            },
+            "J": {
+                "basic": "hit"
+            },
+            "Q": {
+                "basic": "hit"
+            },
+            "K": {
+                "basic": "hit"
+            },
+            "A": {
+                "basic": "hit"
+            },
+        },
+    }
+
     def __init__(self, name: str):
         self.name = name
         self.hand = []
