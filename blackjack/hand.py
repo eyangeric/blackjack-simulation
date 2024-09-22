@@ -18,6 +18,7 @@ class Hand:
             if self.sum_count > 1:
                 self.sums = [value + min(card.value) for value in self.sums]
             else:
+                self.sum_count += 1
                 self.sums = [value + self.sums[0] for value in card.value]
         else:
             self.sums = [value + card.value for value in self.sums]
