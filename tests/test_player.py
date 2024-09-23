@@ -6,16 +6,9 @@ player = Player("Card Counter")
 
 
 def test_create_player():
-
     assert player.name == "Card Counter"
-    assert player.hand == []
-
-
-def test_receive_card():
-    card = Card("A")
-    player.receive_card(card)
-
-    assert player.hand[0].card_type == "A"
+    assert player.hands == []
+    assert player.cards == []
 
 
 def test_check_initial_hand_pair():

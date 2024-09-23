@@ -20,9 +20,9 @@ class Table:
         self.running_count += self.dealer.hand[1].count_value
 
     def initial_deal(self):
-        self.player.receive_card(self.shoe.deal_card())
-        self.dealer.receive_card(self.shoe.deal_card())
-        self.player.receive_card(self.shoe.deal_card())
-        self.dealer.receive_card(self.shoe.deal_card())
+        self.player.receive_initial_hand(self.shoe.deal_card())
+        self.dealer.receive_initial_hand(self.shoe.deal_card())
+        self.player.receive_initial_hand(self.shoe.deal_card())
+        self.dealer.receive_initial_hand(self.shoe.deal_card())
         self.initial_deal_count()
         self.calculate_true_count()

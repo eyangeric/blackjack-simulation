@@ -1,4 +1,5 @@
 from blackjack.card import Card
+from blackjack.hand import Hand
 
 
 class Player:
@@ -1752,29 +1753,40 @@ class Player:
 
     def __init__(self, name: str):
         self.name = name
-        self.hand = []
+        self.hands = []
+        self.cards = []
 
-    def receive_card(self, card: Card):
-        return self.hand.append(card)
+    def receive_initial_hand(self, card: Card):
+        self.cards.append(card)
+        num_cards = len(self.cards)
 
-    def check_initial_hand(self):
-        if len(self.hand) == 2:
-            card_values = [card.value for card in self.hand]
-            card_types = [card.card_type for card in self.hand]
+        if num_cards == 2:
+            hand = Hand(self.cards[0])
+            hand.receive_card(self.cards[1])
+            self.hands.append(hand)
+            self.cards.clear()
+            return "Ready to Play!"
+        else:
+            return "Need 1 more card"
 
-            if "A" in card_types:
-                if 10 in card_values:
-                    hand_type = "black jack"
-                else:
-                    hand_type = "soft"
-            elif card_values[0] == card_values[1]:
-                hand_type = "pair"
-            else:
-                if sum(card_values) in (15, 16, 17):
-                    hand_type = "surrender"
-                else:
-                    hand_type = "hard"
-            self.hand_type = hand_type
+    # def check_initial_hand(self):
+    #     if len(self.hands) == 2:
+    #         card_values = [card.value for card in self.hands]
+    #         card_types = [card.card_type for card in self.hand]
+
+    #         if "A" in card_types:
+    #             if 10 in card_values:
+    #                 hand_type = "black jack"
+    #             else:
+    #                 hand_type = "soft"
+    #         elif card_values[0] == card_values[1]:
+    #             hand_type = "pair"
+    #         else:
+    #             if sum(card_values) in (15, 16, 17):
+    #                 hand_type = "surrender"
+    #             else:
+    #                 hand_type = "hard"
+    #         self.hand_type = hand_type
 
     def check_deviation(self, deviation: str, running_count: int, true_count: int):
         deviation_number = int(deviation[:-1])

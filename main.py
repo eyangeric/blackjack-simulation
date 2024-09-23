@@ -18,9 +18,9 @@ table = Table(dealer, player, shoe)
 # start game
 table.shoe.shuffle()
 
-while len(table.shoe.cards) > 0:
-    table.initial_deal()
-    breakpoint()
+# while len(table.shoe.cards) > 0:
+#     table.initial_deal()
+#     breakpoint()
 
 
 
