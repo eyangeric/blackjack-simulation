@@ -15,9 +15,9 @@ class Table:
         self.true_count = int(self.running_count / len(self.shoe.cards) / 52)
 
     def initial_deal_count(self):
-        player_count = sum([card.count_value for card in self.player.hand])
+        player_count = sum([card.count_value for card in self.player.cards])
         self.running_count += player_count
-        self.running_count += self.dealer.hand[1].count_value
+        self.running_count += self.dealer.cards[1].count_value
 
     def initial_deal(self):
         self.player.receive_initial_hand(self.shoe.deal_card())

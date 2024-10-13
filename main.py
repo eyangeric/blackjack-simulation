@@ -18,6 +18,12 @@ table = Table(dealer, player, shoe)
 # start game
 table.shoe.shuffle()
 
+table.initial_deal()
+
+for hand in table.player.hands:
+    hand_type = table.player.check_initial_hand(hand)
+    print(hand_type)
+
 # while len(table.shoe.cards) > 0:
 #     table.initial_deal()
 #     breakpoint()
