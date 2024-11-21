@@ -1,6 +1,6 @@
 from src.models.card import Card
 from src.models.hand import Hand
-from strategy import *
+from src.strategy import pair_split_strategy, soft_strategy, surrender_strategy, hard_strategy
 
 
 class CardCounter:
@@ -29,6 +29,15 @@ class CardCounter:
         else:
             hand_type = "hard"
         self.hand_type = hand_type
+
+    def choose_strategy(self):
+        if self.hand_type == "pair":
+            self.strategy = pair_split_strategy
+        elif self.hand_type == "soft":
+            self.strategy = soft_strategy
+        elif self.hand_type == "hard":
+            self.strategy = hard_strategy
+
 
     def deviation_count_type(self, deviation: str) -> str:
         if deviation[0] == "0":

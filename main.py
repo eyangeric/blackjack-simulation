@@ -16,8 +16,12 @@ table = Table(dealer, card_counter, shoe)
 # start game
 table.shoe.shuffle()
 
-while len(table.shoe.cards) > 0:
-    try:
-        table.initial_deal()
-    except:
-        print("out of cards")
+table.initial_deal()
+table.card_counter.check_initial_hand()
+
+# while len(table.shoe.cards) > 0:
+#     try:
+#         table.initial_deal()
+#     except:
+#         print("out of cards")
+    
