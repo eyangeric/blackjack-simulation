@@ -1,35 +1,23 @@
-from blackjack.player import Player
-from blackjack.dealer import Dealer
-from blackjack.shoe import Shoe
-from blackjack.deck import Deck
-from blackjack.table import Table
+from src.models.dealer import Dealer
+from src.models.shoe import Shoe
+from src.models.deck import Deck
+from src.models.table import Table
+from src.models.card_counter import CardCounter
 
 
-num_decks = 2
-player_name = 'Card Counter'
-dealer_name = 'The Casino'
+num_decks = 1
 
-player = Player(name=player_name)
-dealer = Dealer(name=dealer_name)
+card_counter = CardCounter()
+dealer = Dealer()
 deck = Deck()
 shoe = Shoe(num_decks, deck)
-table = Table(dealer, player, shoe)
+table = Table(dealer, card_counter, shoe)
 
 # start game
 table.shoe.shuffle()
 
-table.initial_deal()
-
-for hand in table.player.hands:
-    hand_type = table.player.check_initial_hand(hand)
-    print(hand_type)
-
-# while len(table.shoe.cards) > 0:
-#     table.initial_deal()
-#     breakpoint()
-
-
-
-
-
-
+while len(table.shoe.cards) > 0:
+    try:
+        table.initial_deal()
+    except:
+        print("out of cards")

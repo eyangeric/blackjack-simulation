@@ -1,4 +1,4 @@
-from blackjack.deck import Deck
+from src.models.deck import Deck
 
 
 def test_number_of_cards():

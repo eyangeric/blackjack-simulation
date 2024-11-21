@@ -1,5 +1,5 @@
-from blackjack.player import Player
-from blackjack.card import Card
+from src.models.player import Player
+from src.models.card import Card
 
 
 player = Player("Card Counter")

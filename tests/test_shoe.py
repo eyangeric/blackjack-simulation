@@ -1,5 +1,5 @@
-from blackjack.shoe import Shoe
-from blackjack.deck import Deck
+from src.models.shoe import Shoe
+from src.models.deck import Deck
 
 
 deck = Deck()

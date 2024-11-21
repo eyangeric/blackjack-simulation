@@ -1,5 +1,5 @@
-from blackjack.dealer import Dealer
-from blackjack.card import Card
+from src.models.dealer import Dealer
+from src.models.card import Card
 
 
 dealer = Dealer("Dealer")

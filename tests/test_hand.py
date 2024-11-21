@@ -1,5 +1,5 @@
-from blackjack.card import Card
-from blackjack.hand import Hand
+from src.models.card import Card
+from src.models.hand import Hand
 
 
 card_A = Card("A")

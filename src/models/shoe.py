@@ -1,7 +1,7 @@
 import random
 
-from blackjack.deck import Deck
-from blackjack.card import Card
+from src.models.deck import Deck
+from src.models.card import Card
 
 
 class Shoe:
@@ -20,7 +20,7 @@ class Shoe:
         self.running_count += card.assign_count_value
 
     def calculate_true_count(self):
-        self.true_count += self.running_count/len(self.cards)/52
+        self.true_count += self.running_count / len(self.cards) / 52
 
     def deal_initial(self, player, dealer):
         for i in range(2):
@@ -34,8 +34,6 @@ class Shoe:
             else:
                 self.add_running_count(player_card)
         self.calculate_true_count()
-                
-                
 
     def __repr__(self):
         return f"Shoe({len(self.cards)} cards remaining)"

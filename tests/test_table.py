@@ -1,8 +1,8 @@
-from blackjack.dealer import Dealer
-from blackjack.player import Player
-from blackjack.shoe import Shoe
-from blackjack.deck import Deck
-from blackjack.table import Table
+from src.models.dealer import Dealer
+from src.models.player import Player
+from src.models.shoe import Shoe
+from src.models.deck import Deck
+from src.models.table import Table
 
 
 player = Player("Card Counter")

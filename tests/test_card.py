@@ -1,4 +1,4 @@
-from blackjack.card import Card
+from src.models.card import Card
 
 
 def test_int_card():
