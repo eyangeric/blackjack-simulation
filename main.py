@@ -18,6 +18,10 @@ table.shoe.shuffle()
 
 table.initial_deal()
 table.card_counter.check_initial_hand()
+table.card_counter.choose_starting_strategy()
+table.card_counter.check_hand_key(table.card_counter.hands[0])
+table.card_counter.check_play_strategy(table.dealer.hand.cards[-1], table.shoe.true_count, table.shoe.running_count)
+
 
 # while len(table.shoe.cards) > 0:
 #     try:

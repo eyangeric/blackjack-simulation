@@ -30,14 +30,33 @@ class CardCounter:
             hand_type = "hard"
         self.hand_type = hand_type
 
-    def choose_strategy(self):
+    def choose_starting_strategy(self):
         if self.hand_type == "pair":
             self.strategy = pair_split_strategy
         elif self.hand_type == "soft":
             self.strategy = soft_strategy
+        elif self.hand_type == "surrender":
+            self.strategy = surrender_strategy
         elif self.hand_type == "hard":
             self.strategy = hard_strategy
 
+    def check_hand_key(self, hand: Hand):
+        if self.hand_type == "pair":
+            self.hand_key = hand.cards[0].card_type
+        elif self.hand_type == "soft":
+            self.hand_key = [card.card_type for card in hand.cards if card.card_type != "A"][0]
+        else:
+            self.hand_key = str(sum([card.value[0] for card in hand.cards]))
+
+    def check_play_strategy(self, dealer_up_card: Card, true_count: int, running_count: int):
+        strategy_options = self.strategy.get(self.hand_key).get(dealer_up_card.card_type)
+        if "deviation" in strategy_options.keys():
+            deviation = strategy_options.get("deviation")[0]
+            play_strategy = self.check_deviation(deviation=deviation, true_count=true_count, running_count=running_count)
+        if play_strategy == "basic":
+            self.play_action = strategy_options.get(play_strategy)
+        else:
+            self.play_action = strategy_options.get(play_strategy)[1]
 
     def deviation_count_type(self, deviation: str) -> str:
         if deviation[0] == "0":
