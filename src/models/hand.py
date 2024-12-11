@@ -4,29 +4,39 @@ from src.models.card import Card
 class Hand:
     def __init__(self):
         self.cards = []
+        self.card_sums = [0]
 
     def add_card(self, card: Card):
         self.cards.append(card)
+        self.update_card_sums(card)
 
+    def update_card_sums(self, card: Card):
+        new_sums = [
+            sum_value + value
+            for sum_value in self.card_sums
+            for value in card.value
+        ]
+        self.card_sums = [new_sum for new_sum in new_sums if new_sum < 22]
+    
+    def check_21(self):
+        if len(self.cards) == 2 and 21 in self.card_sums:
+            self.black_jack = True
+            self.done = True
+            return "Black Jack!"
+        elif 21 in self.card_sums:
+            self.play_status = "stay"
+            self.final_value = 21
+            self.done = True
+            return "21!"
 
-# class Hand:
-#     def __init__(self, card: Card):
-#         self.cards = [card]
-#         self.sum_count = 1
+    def check_bust(self):
+        if not self.card_sums:
+            self.bust = True
+            self.done = True
+            return
 
-#         if card.card_type == "A":
-#             self.sums = card.value
-#             self.sum_count += 1
-#         else:
-#             self.sums = [card.value]
+    def get_final_value(self):
+        self.final_value = max(self.card_sums)
 
-#     def receive_card(self, card: Card):
-#         self.cards.append(card)
-#         if card.card_type == "A":
-#             if self.sum_count > 1:
-#                 self.sums = [value + min(card.value) for value in self.sums]
-#             else:
-#                 self.sum_count += 1
-#                 self.sums = [value + self.sums[0] for value in card.value]
-#         else:
-#             self.sums = [value + card.value for value in self.sums]
+    def card_counter_bet_amount(self, bet_amount: int):
+        self.bet_amount = bet_amount

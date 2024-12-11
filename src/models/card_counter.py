@@ -11,9 +11,6 @@ class CardCounter:
     def receive_initial_hand(self, card: Card):
         self.hands[0].add_card(card)
 
-    def receive_card(self, card: Card, hand_index=0):
-        self.hands[hand_index].add_card(card)
-
     def check_initial_hand(self):
         card_values = [card.value[0] for card in self.hands[0].cards]
         card_types = [card.card_type for card in self.hands[0].cards]
@@ -50,13 +47,27 @@ class CardCounter:
 
     def check_play_strategy(self, dealer_up_card: Card, true_count: int, running_count: int):
         strategy_options = self.strategy.get(self.hand_key).get(dealer_up_card.card_type)
-        if "deviation" in strategy_options.keys():
+        if not strategy_options and self.hand_type == "surrender":
+            self.hand_type = "hard"
+            self.strategy = hard_strategy
+            strategy_options = self.strategy.get(self.hand_key).get(dealer_up_card.card_type)
+        if len(strategy_options) == 1:
+            self.play_decision = strategy_options.get("basic")
+        else:
             deviation = strategy_options.get("deviation")[0]
             play_strategy = self.check_deviation(deviation=deviation, true_count=true_count, running_count=running_count)
-        if play_strategy == "basic":
-            self.play_action = strategy_options.get(play_strategy)
-        else:
-            self.play_action = strategy_options.get(play_strategy)[1]
+            self.play_decision = strategy_options.get(play_strategy)[1]
+        if self.play_decision == "play":
+            self.hand_type = "hard"
+            self.strategy = hard_strategy
+            strategy_options = self.strategy.get(self.hand_key).get(dealer_up_card.card_type)
+            if len(strategy_options) == 1:
+                self.play_decision = strategy_options.get("basic")
+            else:
+                deviation = strategy_options.get("deviation")[0]
+                play_strategy = self.check_deviation(deviation=deviation, true_count=true_count, running_count=running_count)
+                self.play_decision = strategy_options.get(play_strategy)[1]
+
 
     def deviation_count_type(self, deviation: str) -> str:
         if deviation[0] == "0":
